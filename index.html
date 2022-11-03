@@ -5,10 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- my style.css -->
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 
 
 <body>
+    
+    <!-- container of the game -->
+    <div id="game-container">
+
+        <!-- input section -->
+        <div id="input">
+            <!-- difficulty request -->
+            <span class="neon-button">
+                choose how many numbers you think, you can get
+            </span>
+            <!-- input number -->
+            <input type="number" id="number-quantity" class="neon-button" required>
+        </div>
+
+        <!-- timing section -->
+        <div id="time-input">
+            <!-- temporizzation request -->
+            <span class="neon-button">
+                choose how many seconds you need to remember numbers
+            </span>
+            <!-- input time needed -->
+            <input type="number" id="time-quantity" class="neon-button" required>
+        </div>
+
+        <!-- button for starting the game -->
+        <div>
+            <button class="neon-button" onclick="play(); return false">
+                Let's PlaY !!!
+            </button>
+        </div>
+    </div>
 
     <!-- my script.js -->
     <script src="./script.js"></script>

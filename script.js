@@ -2,12 +2,19 @@
 /*
 Descrizione:
 Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi.
-  - creare un array vuoto*/
+  - creare un array vuoto
+  prendere gli input dall'utente per impostare il gioco*/
   let output = [];
-  /*- creare una funzione per generare num random*/
-  function randomic(){
 
-    for( let i=1; x<=100; i++){
+  let numberQuantity = document.getElementById('number-quantity');
+
+  let timeQuantity = document.getElementById('time-quantity');
+  /*- creare una funzione per generare num random*/
+   /*- ciclo per generare 5 numeri casuali nell'array / bonus: controllare che siano univoci
+  - pushiamo ogni num nell array vuoto*/
+  function randomic(numberQuantity){
+
+    for( let i=1; x<=numberQuantity; i++){
         let randomNumber = Math.round(Math.random() * 100) + 1;
         if (output.includes(randomNumber)){
             i--;
@@ -17,9 +24,8 @@ Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi.
     }
     console.log(output);
   }
-  /*- ciclo per generare 5 numeri casuali nell'array / bonus: controllare che siano univoci
-  - pushiamo ogni num nell array vuoto
-  - stampiamo i pagina i numeri generati
+ 
+  /*- stampiamo i pagina i numeri generati
   - nascondo i numeri visualizzati con il css dopo tot secondi
   - far comparire 5 prompt dopo tot secondi
   2 idee :
