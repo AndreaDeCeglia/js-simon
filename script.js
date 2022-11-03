@@ -8,6 +8,11 @@ Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi.
 
   let userNumbers = [];
 
+  let rightNumbers = [];
+
+  let mistake = [];
+  
+
   let numberQuantity = document.getElementById('number-quantity');
   console.log(numberQuantity);
 
@@ -24,7 +29,7 @@ Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi.
   - pushiamo ogni num nell array vuoto*/
   function randomic(numberQuantity){
 
-    for( let i=1; x<=numberQuantity; i++){
+    for( let i=1; i<=numberQuantity; i++){
         let randomNumber = Math.round(Math.random() * 100) + 1;
         if (output.includes(randomNumber)){
             i--;
@@ -34,19 +39,58 @@ Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi.
             outputSpot.innerHTML = `${output}`
         }
     }
-    console.log(output);
+
+    console.log('randomic numbers are', output );
   }
   
   /*- nascondo i numeri visualizzati con il css dopo tot secondi*/
 
-  setTimeout( function(){
+//   setTimeout( function(){
+//     outputSpot.innerHTML = '';
+//     function(numberQuantity){
+//         for( x=1; x<=numberQuantity; x++){
+//             verifySpot = document.createElement('<input type="number" class="neon-button">')
+//         }
+//     }
+//   },time)
+
+function play(numberQuantity, time){
+    // genero numberQuantity numeri random e li mostro
+    randomic(numberQuantity);
+    // setTimeout(fineTempo, time)
+    setTimeout( fineTempo, time);   
+    /*setTimeout(nomefunzione, time)*/
+}
+
+function fineTempo(numberQuantity){
+    // nascondo i numeri
     outputSpot.innerHTML = '';
-    function(numberQuantity){
-        for( x=1; x<=numberQuantity; x++){
-            verifySpot = document.createElement('<input type="number" class="neon-button">')
+    // creo inputs elements e bottone o uso prompts
+    
+    for(let x=1; x<=numberQuantity; x++){
+        verifySpot = document.createElement('<input id="write-number" type="number" class="neon-button" required>');
+        let writeNumber = document.getElementById('write-number');
+        userNumbers.push(writeNumber);
+    }
+
+    check();
+}
+
+function check(output, userNumbers){
+
+    let risultSpot = document.getElementById('risult-spot');
+    // ho due array, li confronto e dico all'utente quaclosa
+    for( let y=0; y< output; y++ ){
+        if( output.includes(userNumbers)){
+            rightNumbers.push(userNumbers);
+        }else{
+            mistake.push(userNumbers);
         }
     }
-  },time)
+    console.log('indovinati',rightNumbers, 'sbagliati',mistake)
+    risultSpot.innerHTML = `you remember ${rightNumbers} & you forgot ${mistake}`;
+    
+}
 
  /* - far comparire 5 prompt dopo tot secondi
   2 idee :
