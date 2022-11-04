@@ -24,6 +24,13 @@ Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi.
 
   let verifySpot = document.getElementById('verify-spot');
 
+
+  let playBtn = document.getElementById('play');
+
+    playBtn.addEventListener('click', function(){
+        play(numberQuantity, timeQuantity)
+    })
+
   /*- creare una funzione per generare num random*/
    /*- ciclo per generare X numeri casuali nell'array / bonus: controllare che siano univoci
   - pushiamo ogni num nell array vuoto*/
@@ -42,6 +49,8 @@ Visualizzare in pagina 5 numeri casuali. Da lì parte un timer di 30 secondi.
 
     console.log('randomic numbers are', output );
   }
+
+  
   
   /*- nascondo i numeri visualizzati con il css dopo tot secondi*/
 

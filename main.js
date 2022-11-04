@@ -40,16 +40,16 @@ function play(){
     for( let i=1; i<=5; i++){
         let inputNumbers = parseInt(prompt('write what you remember..'));
         userNumbers.push(inputNumbers);
-        console.log(inputNumbers);
+        console.log(`your numbers are : `, inputNumbers);
         if(randomNumbers.includes(inputNumbers)){
             rightNumbers.push(inputNumbers);
-            console.log('your numbers are :', rightNumbers)
+            console.log('you rem :', rightNumbers)
         }else{
             mistake.push(inputNumbers);
             console.log('you forgot :', mistake)
         }
     }
-    document.getElementById('risult').innerHTML = `you remember ` + rightNumbers + `& you forgot ` + mistake;
+    document.getElementById('risult').innerHTML = `you remember ` + rightNumbers + `& you mistook ` + mistake;
     document.getElementById('how-much').innerHTML = `you remember ` + rightNumbers.length + `numbers & you forgot ` + mistake.length + `numbers !!`;
     
 }
